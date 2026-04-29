@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riyanco Zola | Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            950: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+        }
+
+        .mesh-gradient {
+            background: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);
+        }
+
+        .grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased overflow-x-hidden selection:bg-indigo-500/30">
+
+    <!-- Decorative Background Elements -->
+    <div class="fixed inset-0 -z-10 mesh-gradient"></div>
+    <div class="fixed inset-0 -z-10 grid-pattern opacity-40"></div>
+
+    <!-- Navigation (Placeholder) -->
+    <nav
+        class="fixed top-0 w-full z-50 px-6 py-6 transition-all duration-300 backdrop-blur-sm bg-slate-950/20 border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-outfit font-bold tracking-tight text-white group">
+                Zola<span class="text-indigo-500 group-hover:text-violet-400 transition-colors">.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-8 text-sm font-medium text-slate-400">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-white transition-colors">Products</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="lg:hidden text-slate-400 hover:text-white p-2 focus:outline-none">
+                <div id="menu-icon-container">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </div>
+                <div id="close-icon-container" class="hidden">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </div>
+            </button>
+
+            <a href="#contact"
+                class="hidden lg:block px-5 py-2.5 bg-white text-slate-950 rounded-full text-sm font-bold hover:bg-indigo-50 transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-white/5">
+                Hire Me
+            </a>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden absolute top-full left-0 w-full bg-slate-950/95 border-b border-white/5 backdrop-blur-xl px-6 py-8 space-y-6 flex flex-col items-center text-center animate-fade-in-down">
+            <a href="#about"
+                class="text-lg font-medium text-slate-400 hover:text-white transition-colors w-full">About</a>
+            <a href="#experience"
+                class="text-lg font-medium text-slate-400 hover:text-white transition-colors w-full">Experience</a>
+            <a href="#projects"
+                class="text-lg font-medium text-slate-400 hover:text-white transition-colors w-full">Projects</a>
+            <a href="#skills"
+                class="text-lg font-medium text-slate-400 hover:text-white transition-colors w-full">Skills</a>
+            <a href="#contact"
+                class="text-lg font-medium text-slate-400 hover:text-white transition-colors w-full">Contact</a>
+            <a href="#contact" class="px-8 py-3 bg-indigo-600 text-white rounded-full font-bold w-full">Hire Me</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20">
+        <div class="max-w-4xl w-full text-center space-y-8">
+            <!-- Eyebrow Badge -->
+            <div class="reveal flex justify-center">
+                <div
+                    class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold tracking-wider uppercase">
+                    <span class="relative flex h-2 w-2 mr-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                    </span>
+                    Available for new opportunities
+                </div>
+            </div>
+
+            <!-- Name -->
+            <div class="reveal space-y-4">
+                <h1
+                    class="text-6xl md:text-8xl lg:text-9xl font-display font-medium tracking-tight text-white leading-tight">
+                    Riyanco Zola <span </span>
+                </h1>
+                <p class="text-xl md:text-3xl font-outfit font-light text-slate-300">
+                    Lead Product Manager
+                </p>
+            </div>
+
+            <!-- Description -->
+            <div class="reveal flex justify-center">
+                <p class="max-w-2xl text-slate-400 text-lg leading-relaxed">
+                    Orchestrating product vision from concept to scale through strategic leadership and user-centric
+                    design.
+                    Specializing in building impactful digital products that solve complex problems and drive measurable
+                    growth.
+                </p>
+            </div>
+
+            <!-- CTAs -->
+            <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#projects"
+                    class="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-bold transition-all flex items-center justify-center group shadow-xl shadow-indigo-600/20">
+                    Projects
+                    <i data-lucide="arrow-right" s
+                        class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#contact"
+                    class="w-full sm:w-auto px-8 py-4 bg-slate-900 border border-white/10 hover:border-white/20 text-white rounded-2xl font-bold transition-all flex items-center justify-center">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div
+            class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 animate-bounce cursor-pointer">
+            <span class="text-[10px] uppercase tracking-[0.2em] font-bold">Scroll</span>
+            <i data-lucide="chevron-down" class="w-5 h-5"></i>
+        </div>
+    </section>
+
+    <!-- Sections (Placeholders) -->
+    <!-- About Section -->
+    <section id="about" class="relative min-h-screen flex items-center px-6 py-24">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left Column: Photo Placeholder -->
+                <div class="reveal relative order-2 lg:order-1">
+                    <div class="relative group">
+                        <!-- Floating Location Badge -->
+                        <div
+                            class="absolute -bottom-4 -right-4 md:bottom-8 md:-right-8 bg-slate-900 border border-white/10 px-4 py-3 rounded-2xl shadow-2xl backdrop-blur-md flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center text-xl">
+                                📍</div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Location</p>
+                                <p class="text-sm font-semibold text-white">Kab Tangerang, ID</p>
+                            </div>
+                        </div>
+
+                        <!-- Decorative Elements -->
+                        <div>
+                            <img src=" ./00-277.jpg" alt="Decorative Background">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Bio Content -->
+                <div class=" reveal space-y-8 order-1 lg:order-2">
+                    <div class="space-y-4">
+                        <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-indigo-400">About Me</h2>
+                        <h3 class="text-4xl md:text-5xl font-display font-medium text-white leading-tight">
+                            Driven by vision, <br />
+                            <span class="text-slate-400 italic">refined by strategy.</span>
+                        </h3>
+                    </div>
+
+                    <div class="space-y-6 text-slate-400 text-lg leading-relaxed">
+                        <p>
+                            I'm <span class="text-white font-medium">Riyanco Zola</span>, a Lead Product Manager
+                            based
+                            in Kab Tangerang. With a background +5 years in both business strategy and
+                            user-centric
+                            design, I
+                            bridge the gap between complex market requirements and impactful product solutions.
+                            I
+                            specialize in
+                            scaling digital
+                            products that don't just exist—they lead.
+                        </p>
+                        <p>
+                            My approach is rooted in data-driven insights and cross-functional leadership. I
+                            believe
+                            that the best products are
+                            those that align business goals with real user needs while providing a seamless,
+                            meaningful
+                            experience.
+                            I'm constantly optimizing workflows to deliver value at pace.
+                        </p>
+                        <p>
+                            When I'm not orchestrating product roadmaps or analyzing market trends, you'll find
+                            me
+                            exploring the local coffee
+                            scene, experimenting with analog photography, or diving into a good business
+                            strategy book.
+                            I believe
+                            a balanced life fuels a visionary mind.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="relative min-h-screen flex items-center px-6 py-24 bg-slate-950/30">
+        <div class="max-w-4xl mx-auto w-full">
+            <div class="space-y-16">
+                <!-- Section Header -->
+                <div class="reveal space-y-4 text-center lg:text-left">
+                    <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-indigo-400">Experience</h2>
+                    <h3 class="text-4xl md:text-5xl font-display font-medium text-white">Journey so far.</h3>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="relative border-l border-white/10 ml-4 md:ml-6 pl-8 md:pl-12 space-y-12 pb-8">
+
+                    <!-- Item 1 -->
+                    <div class="reveal relative">
+                        <!-- Timeline Dot -->
+                        <div
+                            class="absolute -left-[42px] md:-left-[58px] top-0 w-5 h-5 rounded-full bg-slate-950 border-4 border-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.5)] z-10">
+                        </div>
+
+                        <div class="space-y-2">
+                            <span
+                                class="inline-block font-mono text-xs font-bold text-indigo-400/80 tracking-widest uppercase">2025
+                                — Present</span>
+                            <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                                <h4 class="text-2xl md:text-3xl font-outfit font-semibold text-white">Lead Product
+                                    Manager</h4>
+                                <span class="text-slate-500 font-medium">PT Raksasa Kinerja Digital Indonesia</span>
+                            </div>
+                            <p class="max-w-2xl text-slate-400 leading-relaxed text-sm md:text-base">
+                                Driving product strategy and innovation for high-scale digital solutions. Leading
+                                cross-functional teams to redefine market standards through data-driven discovery and
+                                rapid iteration. Focused on aligning business objectives with transformative user
+                                experiences to achieve exponential growth.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="reveal relative">
+                        <!-- Timeline Dot -->
+                        <div
+                            class="absolute -left-[42px] md:-left-[58px] top-0 w-5 h-5 rounded-full bg-slate-950 border-4 border-slate-700 group-hover:border-indigo-400 transition-colors z-10">
+                        </div>
+
+                        <div class="space-y-2">
+                            <span
+                                class="inline-block font-mono text-xs font-bold text-slate-500 tracking-widest uppercase">2024
+                                — 2025</span>
+                            <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                                <h4 class="text-2xl md:text-3xl font-outfit font-semibold text-white">Product
+                                    Manager
+                                </h4>
+                                <span class="text-slate-500 font-medium">PT Code Development Indonesia</span>
+                            </div>
+                            <p class="max-w-2xl text-slate-400 leading-relaxed text-sm md:text-base">
+                                Spearheaded the development of custom software solutions, bridging the gap between
+                                client vision and technical execution. Optimized product workflows and delivery cycles,
+                                resulting in a 30% reduction in time-to-market while maintaining superior quality
+                                standards for enterprise-grade applications.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="reveal relative">
+                        <!-- Timeline Dot -->
+                        <div
+                            class="absolute -left-[42px] md:-left-[58px] top-0 w-5 h-5 rounded-full bg-slate-950 border-4 border-slate-700 group-hover:border-indigo-400 transition-colors z-10">
+                        </div>
+
+                        <div class="space-y-2">
+                            <span
+                                class="inline-block font-mono text-xs font-bold text-slate-500 tracking-widest uppercase">2023
+                                — 2024</span>
+                            <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                                <h4 class="text-2xl md:text-3xl font-outfit font-semibold text-white">Product
+                                    Manager
+                                </h4>
+                                <span class="text-slate-500 font-medium">PT Elektronik Distribusi Otomatisasi
+                                    Terbuka</span>
+                            </div>
+                            <p class="max-w-2xl text-slate-400 leading-relaxed text-sm md:text-base">
+                                Managed the full lifecycle of consumer-facing digital products, emphasizing user
+                                engagement and feature optimization. Conducted extensive market research and user
+                                testing to inform the product roadmap, leading to significant improvements in user
+                                retention and satisfaction scores.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- Item 4 -->
+                    <div class="reveal relative">
+                        <!-- Timeline Dot -->
+                        <div
+                            class="absolute -left-[42px] md:-left-[58px] top-0 w-5 h-5 rounded-full bg-slate-950 border-4 border-slate-700 group-hover:border-indigo-400 transition-colors z-10">
+                        </div>
+
+                        <div class="space-y-2">
+                            <span
+                                class="inline-block font-mono text-xs font-bold text-slate-500 tracking-widest uppercase">2022
+                                — 2023</span>
+                            <div class="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                                <h4 class="text-2xl md:text-3xl font-outfit font-semibold text-white">Product
+                                    Manager
+                                </h4>
+                                <span class="text-slate-500 font-medium">PT Esensi Solusi Buana</span>
+                            </div>
+                            <p class="max-w-2xl text-slate-400 leading-relaxed text-sm md:text-base">
+                                Focused on B2B product excellence, streamlining complex operational processes through
+                                intuitive digital tools. Collaborated closely with stakeholders to identify pain points
+                                and deliver high-impact features that enhanced operational efficiency for a diverse
+                                portfolio of clients.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="relative min-h-screen flex items-center px-6 py-24">
+        <div class="max-w-7xl mx-auto w-full space-y-16">
+
+            <!-- Section Header -->
+            <div class="reveal space-y-4 text-center">
+                <h3 class="text-4xl md:text-5xl font-display font-medium text-white">Featured Product.</h3>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Project Card 01 -->
+                <div
+                    class="reveal group relative bg-slate-900/50 border border-white/5 rounded-3xl p-8 hover:-translate-y-2 transition-all duration-500 backdrop-blur-sm">
+                    <!-- Top Accent Line (Animated on Hover) -->
+                    <div
+                        class="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500">
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-start">
+                            <span class="font-mono text-xs font-bold text-slate-500 tracking-widest">01</span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <h4 class="text-2xl font-display font-semibold text-white">Starbucks Indonesia</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Optimized the mobile ordering experience and loyalty program integration. Focused on
+                                streamlining the user journey from discovery to checkout, resulting in a significant
+                                increase in mobile transaction volume and user retention.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 pt-4">
+                            <span
+                                class="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-300 bg-indigo-500/10 rounded-full border border-indigo-500/20">Bug
+                                Fixing</span>
+                            <span
+                                class="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-300 bg-indigo-500/10 rounded-full border border-indigo-500/20">Loyalty
+                                Program</span>
+                            <span
+                                class="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-300 bg-indigo-500/10 rounded-full border border-indigo-500/20">UX
+                                Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 02 -->
+                <div
+                    class="reveal group relative bg-slate-900/50 border border-white/5 rounded-3xl p-8 hover:-translate-y-2 transition-all duration-500 backdrop-blur-sm">
+                    <div
+                        class="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-violet-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500">
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-start">
+                            <span class="font-mono text-xs font-bold text-slate-500 tracking-widest">02</span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <h4 class="text-2xl font-display font-semibold text-white">Activo</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Directed the product evolution of Activo, an enterprise asset management solution.
+                                Spearheaded feature prioritization and stakeholder alignment to transform complex
+                                operational needs into an intuitive platform.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 pt-4">
+                            <span
+                                class="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-violet-300 bg-violet-500/10 rounded-full border border-violet-500/20">Asset
+                                Management</span>
+                            <span
+                                class="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-violet-300 bg-violet-500/10 rounded-full border border-violet-500/20">Enterprise
+                                SaaS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 03 -->
+                <div
+                    class="reveal group relative bg-slate-900/50 border border-white/5 rounded-3xl p-8 hover:-translate-y-2 transition-all duration-500 backdrop-blur-sm">
+                    <div
+                        class="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500">
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-start">
+                            <span class="font-mono text-xs font-bold text-slate-500 tracking-widest">03</span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <h4 class="text-2xl font-display font-semibold text-white">FinTech</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Orchestrated the development of a secure and scalable financial services platform.
+                                Implemented robust security protocols and user-centric designs, scaling the application
+                                to handle high-volume transactions while maintaining 99.9% system uptime.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 pt-4">
+                            <span
+                                class="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-fuchsia-300 bg-fuchsia-500/10 rounded-full border border-fuchsia-500/20">Financial
+                                Services</span>
+                            <span
+                                class="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-fuchsia-300 bg-fuchsia-500/10 rounded-full border border-fuchsia-500/20">Scalability</span>
+                            <span
+                                class="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-fuchsia-300 bg-fuchsia-500/10 rounded-full border border-fuchsia-500/20">UX
+                                Enhancement</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="relative min-h-screen flex items-center px-6 py-24 bg-slate-950/20">
+        <div class="max-w-7xl mx-auto w-full space-y-16">
+
+            <!-- Section Header -->
+            <div class="reveal space-y-4 text-center">
+                <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-indigo-400">Toolkit</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-medium text-white">Abilities & Expertise.</h3>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Product Strategy -->
+                <div class="reveal bg-slate-900/40 border border-white/5 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
+                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase italic">Product
+                        Strategy</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-emerald-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Roadmapping</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-emerald-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Market
+                                Research</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-emerald-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Competitive
+                                Analysis</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-emerald-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">User
+                                Experience</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-emerald-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Product
+                                Vision</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Management -->
+                <div class="reveal bg-slate-900/40 border border-white/5 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
+                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase italic">Product
+                        Management</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-purple-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Stakeholder
+                                Mgmt</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-purple-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Agile/Scrum</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-purple-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Backlog
+                                Prioritization</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-purple-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Product
+                                Discovery</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-purple-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Lifecycle
+                                Mgmt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data & Analytics -->
+                <div class="reveal bg-slate-900/40 border border-white/5 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
+                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase italic">Data &
+                        Analytics</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-pink-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">SQL</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-pink-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">A/B Testing</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-pink-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Dashboard
+                                Analytics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leadership & Agile -->
+                <div class="reveal bg-slate-900/40 border border-white/5 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
+                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase italic">Leadership &
+                        Agile</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-blue-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Team
+                                Mentoring</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-blue-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Cross-functional
+                                Collab</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design & Research -->
+                <div class="reveal bg-slate-900/40 border border-white/5 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
+                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase italic">Design &
+                        Research</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-cyan-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Figma</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-cyan-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Wireframing</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-cyan-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">UX Research</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="reveal bg-slate-900/40 border border-white/5 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
+                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase italic">Management
+                        Tools</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-orange-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Jira</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-orange-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Confluence</span>
+                        </div>
+                        <div
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-orange-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-white">Lucid</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative min-h-[80vh] flex items-center px-6 py-24">
+        <div class="max-w-4xl mx-auto w-full text-center space-y-12">
+
+            <!-- Section Header -->
+            <div class="reveal space-y-4">
+                <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-indigo-400">Get in touch</h2>
+                <h3 class="text-4xl md:text-6xl font-display font-medium text-white">Let's build something <br /> <span
+                        class="italic text-slate-400">extraordinary.</span></h3>
+            </div>
+
+            <!-- Email Display -->
+            <div class="reveal group inline-block">
+                <p class="text-slate-400 text-lg mb-4">Open to collaboration opportunities—feel free to get in touch
+                    anytime!</p>
+                <a href="mailto:riyanco.zola@example.com"
+                    class="text-3xl md:text-5xl font-outfit font-bold text-white hover:text-indigo-400 transition-colors duration-300 break-all underline decoration-indigo-500/30 decoration-2 underline-offset-8">
+                    riyancozola@gmail.com
+                </a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="reveal flex flex-wrap justify-center gap-6 pt-8">
+                <a href="https://linkedin.com/in/riyanco-zola-56392b143"
+                    class="flex items-center gap-2 px-6 py-3 bg-slate-900 border border-white/5 rounded-2xl text-slate-400 hover:text-white hover:border-white/10 transition-all">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    <span class="font-medium">LinkedIn</span>
+                </a>
+                <a href="./Riyanco Zola_CV.pdf" download
+                    class="flex items-center gap-2 px-6 py-3 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl text-indigo-400 hover:bg-indigo-500/20 transition-all">
+                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                    <span class="font-medium">Download CV</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 py-12 border-t border-white/5 bg-slate-950/50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-sm text-slate-500 font-medium">
+                Designed & Built by <span class="text-white">Riyanco Zola</span> — © 2026
+            </div>
+            <div class="flex gap-8 text-xs font-bold uppercase tracking-widest text-slate-600">
+                <a href="#hero" class="hover:text-white transition-colors">Home</a>
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#projects" class="hover:text-white transition-colors">Products</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach((el) => observer.observe(el));
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconContainer = document.getElementById('menu-icon-container');
+        const closeIconContainer = document.getElementById('close-icon-container');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIconContainer.classList.toggle('hidden');
+            closeIconContainer.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIconContainer.classList.remove('hidden');
+                closeIconContainer.classList.add('hidden');
+            });
+        });
+
+        // Sticky Navbar Shadow & Style
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-slate-950/80', 'py-4', 'border-white/10', 'shadow-2xl');
+                nav.classList.remove('bg-slate-950/20', 'py-6', 'border-white/5');
+            } else {
+                nav.classList.remove('bg-slate-950/80', 'py-4', 'border-white/10', 'shadow-2xl');
+                nav.classList.add('bg-slate-950/20', 'py-6', 'border-white/5');
+            }
+        });
+    </script>
+</body>
+
+</html>
