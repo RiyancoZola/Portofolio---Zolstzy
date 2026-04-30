@@ -103,7 +103,8 @@
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button id="menu-toggle" class="lg:hidden text-slate-400 hover:text-white p-2 focus:outline-none">
+            <button id="menu-toggle" aria-label="Toggle menu"
+                class="lg:hidden text-slate-400 hover:text-white p-2 focus:outline-none">
                 <div id="menu-icon-container">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </div>
@@ -154,17 +155,21 @@
             <!-- Name -->
             <div class="reveal space-y-4">
                 <h1
-                    class="text-6xl md:text-8xl lg:text-9xl font-display font-medium tracking-tight text-white leading-tight">
-                    Riyanco Zola <span </span>
+                    class="text-6xl md:text-8xl lg:text-9xl font-display font-medium tracking-tight leading-tight bg-gradient-to-r from-white via-white to-slate-400 bg-clip-text text-transparent">
+                    Riyanco Zola
                 </h1>
-                <p class="text-xl md:text-3xl font-outfit font-light text-slate-300">
-                    Lead Product Manager
-                </p>
+                <div class="flex justify-center">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 font-outfit font-semibold text-indigo-300 text-xl md:text-2xl">
+                        <i data-lucide="briefcase" class="w-5 h-5"></i>
+                        Lead Product Manager
+                    </div>
+                </div>
             </div>
 
             <!-- Description -->
             <div class="reveal flex justify-center">
-                <p class="max-w-2xl text-slate-400 text-lg leading-relaxed">
+                <p class="max-w-xl text-slate-400 text-lg leading-relaxed">
                     Orchestrating product vision from concept to scale through strategic leadership and user-centric
                     design.
                     Specializing in building impactful digital products that solve complex problems and drive measurable
@@ -175,24 +180,18 @@
             <!-- CTAs -->
             <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
                 <a href="#projects"
-                    class="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-bold transition-all flex items-center justify-center group shadow-xl shadow-indigo-600/20">
+                    class="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-bold transition-all flex items-center justify-center group shadow-lg shadow-indigo-600/30">
                     Projects
-                    <i data-lucide="arrow-right" s
+                    <i data-lucide="arrow-right"
                         class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                 </a>
                 <a href="#contact"
-                    class="w-full sm:w-auto px-8 py-4 bg-slate-900 border border-white/10 hover:border-white/20 text-white rounded-2xl font-bold transition-all flex items-center justify-center">
+                    class="w-full sm:w-auto px-8 py-4 bg-slate-900 border border-white/10 hover:border-white/20 text-white rounded-full font-bold transition-all flex items-center justify-center">
                     Contact Me
                 </a>
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
-        <div
-            class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 animate-bounce cursor-pointer">
-            <span class="text-[10px] uppercase tracking-[0.2em] font-bold">Scroll</span>
-            <i data-lucide="chevron-down" class="w-5 h-5"></i>
-        </div>
     </section>
 
     <!-- Sections (Placeholders) -->
@@ -205,20 +204,25 @@
                 <div class="reveal relative order-2 lg:order-1">
                     <div class="relative group">
                         <!-- Floating Location Badge -->
-                        <div
-                            class="absolute -bottom-4 -right-4 md:bottom-8 md:-right-8 bg-slate-900 border border-white/10 px-4 py-3 rounded-2xl shadow-2xl backdrop-blur-md flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center text-xl">
-                                📍</div>
-                            <div>
-                                <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Location</p>
-                                <p class="text-sm font-semibold text-white">Kab Tangerang, ID</p>
-                            </div>
-                        </div>
 
-                        <!-- Decorative Elements -->
-                        <div>
-                            <img src=" ./00-277.jpg" alt="Decorative Background">
+                        <!-- Photo with Fallback -->
+                        <div class="relative overflow-hidden rounded-3xl bg-slate-900 border border-white/5 shadow-2xl">
+                            <img src="./00-277.jpg" alt="Riyanco Zola" class="w-full h-auto aspect-[3/4] object-cover"
+                                onerror="this.onerror=null; this.style.display='none'; this.parentElement.querySelector('.avatar-fallback').style.display='flex'">
+
+                            <!-- Avatar Fallback -->
+                            <div
+                                class="avatar-fallback hidden w-full aspect-[3/4] bg-gradient-to-br from-indigo-900/50 to-slate-900 flex-col items-center justify-center relative">
+                                <span class="font-display text-6xl text-white/30 tracking-tighter">RZ</span>
+
+                                <!-- Years Badge -->
+                                <div
+                                    class="absolute bottom-6 left-6 px-3 py-1.5 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></div>
+                                    <span class="text-[10px] font-bold text-white uppercase tracking-wider">5+ Years in
+                                        PM</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -265,6 +269,23 @@
                             a balanced life fuels a visionary mind.
                         </p>
                     </div>
+
+                    <!-- Stats Row -->
+                    <div class="grid grid-cols-3 gap-8 border-t border-white/5 pt-8 mt-8">
+                        <div class="space-y-1">
+                            <p class="font-display text-4xl text-white">5+</p>
+                            <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Years of XP</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="font-display text-4xl text-white">10+</p>
+                            <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Products Shipped
+                            </p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="font-display text-4xl text-white">3+</p>
+                            <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Industries</p>
+                        </div>
+                    </div>
                 </div>
             </div>
     </section>
@@ -276,7 +297,8 @@
                 <!-- Section Header -->
                 <div class="reveal space-y-4 text-center lg:text-left">
                     <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-indigo-400">Experience</h2>
-                    <h3 class="text-4xl md:text-5xl font-display font-medium text-white">Journey so far.</h3>
+                    <h3 class="text-4xl md:text-5xl font-display font-medium text-white">Journey <span
+                            class="italic text-slate-400">so far.</span></h3>
                 </div>
 
                 <!-- Timeline Container -->
@@ -397,7 +419,9 @@
 
             <!-- Section Header -->
             <div class="reveal space-y-4 text-center">
-                <h3 class="text-4xl md:text-5xl font-display font-medium text-white">Featured Product.</h3>
+                <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-indigo-400">Selected Work</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-medium text-white">Work that <span
+                        class="italic text-slate-400">made an impact.</span></h3>
             </div>
 
             <!-- Projects Grid -->
@@ -515,44 +539,45 @@
 
             <!-- Section Header -->
             <div class="reveal space-y-4 text-center">
-                <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-indigo-400">Toolkit</h2>
-                <h3 class="text-4xl md:text-5xl font-display font-medium text-white">Abilities & Expertise.</h3>
+                <h2 class="text-sm font-bold uppercase tracking-[0.3em] text-indigo-400">Expertise</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-medium text-white">Tools of <span
+                        class="italic text-slate-400">the trade.</span></h3>
             </div>
 
             <!-- Skills Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- Product Strategy -->
-                <div class="reveal bg-slate-900/40 border border-white/5 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase italic">Product
+                <div class="reveal bg-slate-900/40 border border-white/5 rounded-2xl p-8 space-y-6 backdrop-blur-sm">
+                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase">Product
                         Strategy</h4>
                     <div class="flex flex-wrap gap-3">
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-emerald-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Roadmapping</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-emerald-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Market
                                 Research</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-emerald-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Competitive
                                 Analysis</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-emerald-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">User
                                 Experience</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-emerald-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Product
                                 Vision</span>
                         </div>
@@ -560,36 +585,36 @@
                 </div>
 
                 <!-- Product Management -->
-                <div class="reveal bg-slate-900/40 border border-white/5 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase italic">Product
+                <div class="reveal bg-slate-900/40 border border-white/5 rounded-2xl p-8 space-y-6 backdrop-blur-sm">
+                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase">Product
                         Management</h4>
                     <div class="flex flex-wrap gap-3">
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-purple-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Stakeholder
                                 Mgmt</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-purple-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Agile/Scrum</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-purple-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Backlog
                                 Prioritization</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-purple-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Product
                                 Discovery</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-purple-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Lifecycle
                                 Mgmt</span>
                         </div>
@@ -597,23 +622,23 @@
                 </div>
 
                 <!-- Data & Analytics -->
-                <div class="reveal bg-slate-900/40 border border-white/5 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase italic">Data &
+                <div class="reveal bg-slate-900/40 border border-white/5 rounded-2xl p-8 space-y-6 backdrop-blur-sm">
+                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase">Data &
                         Analytics</h4>
                     <div class="flex flex-wrap gap-3">
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-pink-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">SQL</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-pink-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">A/B Testing</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-pink-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Dashboard
                                 Analytics</span>
                         </div>
@@ -621,19 +646,19 @@
                 </div>
 
                 <!-- Leadership & Agile -->
-                <div class="reveal bg-slate-900/40 border border-white/5 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase italic">Leadership &
+                <div class="reveal bg-slate-900/40 border border-white/5 rounded-2xl p-8 space-y-6 backdrop-blur-sm">
+                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase">Leadership &
                         Agile</h4>
                     <div class="flex flex-wrap gap-3">
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-blue-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Team
                                 Mentoring</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-blue-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-indigo-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Cross-functional
                                 Collab</span>
                         </div>
@@ -641,46 +666,46 @@
                 </div>
 
                 <!-- Design & Research -->
-                <div class="reveal bg-slate-900/40 border border-white/5 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase italic">Design &
+                <div class="reveal bg-slate-900/40 border border-white/5 rounded-2xl p-8 space-y-6 backdrop-blur-sm">
+                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase">Design &
                         Research</h4>
                     <div class="flex flex-wrap gap-3">
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-cyan-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-violet-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-violet-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Figma</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-cyan-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-violet-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-violet-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Wireframing</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-cyan-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-violet-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-violet-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">UX Research</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tools -->
-                <div class="reveal bg-slate-900/40 border border-white/5 rounded-3xl p-8 space-y-6 backdrop-blur-sm">
-                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase italic">Management
+                <div class="reveal bg-slate-900/40 border border-white/5 rounded-2xl p-8 space-y-6 backdrop-blur-sm">
+                    <h4 class="font-mono text-xs font-bold text-slate-500 tracking-widest uppercase">Management
                         Tools</h4>
                     <div class="flex flex-wrap gap-3">
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-orange-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-violet-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-violet-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Jira</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-orange-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-violet-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-violet-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Confluence</span>
                         </div>
                         <div
-                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-orange-500/50 transition-colors flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                            class="group px-4 py-2 bg-slate-950 border border-white/5 rounded-xl hover:border-violet-500/50 transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-violet-500"></span>
                             <span class="text-sm font-medium text-slate-300 group-hover:text-white">Lucid</span>
                         </div>
                     </div>
